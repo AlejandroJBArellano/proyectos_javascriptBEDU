@@ -12,8 +12,7 @@ const printAlert = text => {
     myAlert.classList.add("alerta")
     myAlert.style.display = "inline"
     myAlert.setAttribute("role", "alert");
-    var myAlertText = document.createTextNode(text);
-    myAlert.appendChild(myAlertText);
+    myAlert.innerHTML = text;
     document.getElementById("alerta").appendChild(myAlert);
 }
 
