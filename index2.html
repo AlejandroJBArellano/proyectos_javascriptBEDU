@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Slider de Imagen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="second/style.css">
+    <link rel="shortcut icon" href="resources/photo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="drag-area">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <p>Arrastra una imagen o pulsa el botón para pasar al siguiente nivel</p>
+            <span></span>
+            <button>Explorar Imágenes</button>
+            <input type="file" hidden>
+        </div>
+        <div class="wrapper">
+            <div class="images">
+                <img class="img-1"></img>
+                <div class="img-2"></div>
+            </div>
+            <div class="slider">
+                <div class="lineaAgarre">
+                    <span></span>
+                </div>
+                <input type="range" min="0" max="100" value="50">
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="botonFiltroOne">Filtro: Invertido</button>
+            <button id="botonFiltroTwo">Filtro: Sepia</button>
+            <button id="botonFiltroThree">Filtro: B&N</button>
+        </div>
+        <a id="linkTercero" href="third/proyecto3.html">Siguiente proyecto</a>
+    </div>
+    <script src="second/app2.js"></script>
+</body>
+</html>

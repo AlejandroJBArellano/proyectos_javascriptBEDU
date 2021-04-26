@@ -1,0 +1,93 @@
+body{
+    background-color: aquamarine;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h2{
+    text-align: center;
+}
+.section {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.container {
+    background-color: #6495ed;
+    margin: auto;
+    padding: 15px;
+    border-radius: 10px;
+}
+#container {
+    display:none;
+    background-color: seashell;
+    border-radius: 10px;
+    border: 2px dashed black;
+    padding: 20px;
+}
+.inputs {
+    margin: 5px;
+    padding: 5px;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+::-webkit-input-placeholder { 
+    color: #000000; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.buttons {
+    background-color: #ddd;
+    color: darkblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    border:1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 800;
+}
+#form {
+    display: none;
+    justify-content: center;
+}
+#form input, #form button {
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+#form input {
+    background-color: rgb(112, 127, 203);
+    width: 110px;
+}
+#form button {
+    background-color: #123dfe;
+    color: rgb(255, 245, 245);
+}
+#form input::placeholder{
+    color:azure;
+}
+.alerta{
+    border:dotted 2px black;
+    color: rgb(231, 231, 231);
+    text-align: center;
+    background-color: rgb(254, 0, 0);
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: auto;
+    position: relative;
+    margin-top: 18px;
+}
+.alerta::before{
+    content: "";
+    display: block;
+    background-color:aquamarine;
+    height: 10px;
+    border-left:20px solid transparent;
+    border-right:20px solid transparent;
+    border-bottom:20px solid rgb(254, 0, 0);
+    position: absolute;
+    bottom: 100%;
+}
+.alertaContenedor{
+    display:flex;
+    justify-content: center;
+}
