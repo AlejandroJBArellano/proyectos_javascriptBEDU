@@ -62,9 +62,11 @@ function showFile(){
             img.innerHTML = `<div></div>`
             img.firstElementChild.style.background = `url("${fileURL}") no-repeat`;
             img.firstElementChild.style.backgroundSize = "cover";
-            img.firstElementChild.style.filter= "brightness(0.5)"
+            // img.firstElementChild.style.filter= "brightness(0.5)"
             buttons.style.display = "flex"
-            linkTercero.style.display = "block"
+            linkTercero.parentElement.style.display = "flex"
+            linkTercero.parentElement.style.justifyContent = "center"
+            linkTercero.style.display = "inline"
         }
     fileReader.readAsDataURL(file);
     }else{

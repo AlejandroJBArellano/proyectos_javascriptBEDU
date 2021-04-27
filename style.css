@@ -31,7 +31,11 @@ body {
     text-align: center;
     padding: 10px 0;
 }
-
+.link, .link:visited{
+    color: white;
+    text-decoration: none;
+    background-color: tomato;
+}
 #player {
     background: #976;
     border: 4px double #468890;

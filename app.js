@@ -1,13 +1,14 @@
 let puntos = 0,
 tiempo = 10,
 necesarios = 5,
+tempo = 0,
 pointer = document.getElementById("idPointer"),
 pointerHijos = document.querySelector(".claseHijos"),
 activado = document.querySelector(".activado"),
 desactivado = document.querySelector(".desactivado"),
 restarTiempo = () => {
     tiempo--
-    document.getElementById("tiempo").innerHTML = `&nbsp;&nbsp;&nbsp  Tiempo: ${tiempo}`
+    document.getElementById("tiempo").innerHTML = `Tiempo: ${tiempo}`
     if(tiempo === 0 && puntos !== necesarios){
         document.getElementById("tiempo").style.display = "none"
         pointerHijos.style.display = "none"
@@ -33,14 +34,15 @@ sumarPuntos = ()=>{
         puntos = 0
     }
 };
-// let calcularTiempo = ()=>{
-//     setTimeOut(()=>{
-//         restarTiempo()
-//     },1000)
-// }
-setInterval(restarTiempo,1000)
+window.addEventListener("keydown",event=>{
+    if (event.key === " "){
+    event.preventDefault()
+    setInterval(restarTiempo,1000)
+    document.getElementById("puntos").innerHTML = `Puntos : <strong> ${puntos}/${necesarios}</strong> `
+    document.getElementById("player").addEventListener("click",function(){
+        sumarPuntos()
+    })
+    }
+})
 
-// calcularTiempo()
-
-document.getElementById("player").addEventListener("click",function(){sumarPuntos()})
 
