@@ -13,8 +13,10 @@ html,body{
     height: 100%;
     width: 100%;
     place-items: center;
-    background: var(--amarillo);
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    scroll-behavior: smooth;
 }
 .container {
     width: 100%;
@@ -25,6 +27,7 @@ html,body{
     font-size: 20px;
     border: dashed 5px;
     padding: 1rem 0;
+    margin: auto;
 }
 .drag-area button {
     font-family: 'Slabo 27px', serif;
@@ -53,9 +56,9 @@ html,body{
 .wrapper .images .img-1, .wrapper .images .img-2{
     width: 100%;
     margin: auto;
-    object-fit: contain;
+    /* object-fit: contain; */
 }
-.wrapper .images .img-1 img {
+.wrapper .images .img-1 {
     object-fit: contain;
     width: 100%;
     height: 100%;
@@ -145,20 +148,6 @@ html,body{
     left: 60%;
     border-top-color: #fff;
 }  
-.buttons{
-    display: none;
-    justify-content: space-around;
-}
-.buttons > *{
-    background-color: var(--naranja);
-    color: #efefef;
-    font-size: 20px;
-    font-family: 'Slabo 27px', serif;
-    font-weight: 800;
-    border-radius: .3rem;
-    padding: .5rem;
-    margin: 1rem 0;
-}
 #linkTercero, #linkTercero:visited{
     color: red;
     display:none;
@@ -169,4 +158,68 @@ html,body{
     border: 5px dashed red;
     margin: 10px;
     padding: 10px;
+}
+.contenedor-filtros{
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.contenedor-filtros > *{
+    width: 200px;
+    height: auto;
+    background-color: rgba(233, 150, 122, 0.5);
+    color: #efefef;
+    font-size: 20px;
+    font-family: 'Slabo 27px', serif;
+    font-weight: 800;
+    border-radius: .3rem;
+    padding: .5rem;
+    margin: 1rem 0;
+    overflow: auto;
+}
+.contenedor-filtros > *:hover{
+}
+.contenedor-filtros > * > *{
+    position: relative;
+}
+.contenedor-filtros > * > input::-webkit-slider-thumb{
+    height: 40px;
+}
+.contenedor-filtros > * > input:active{
+    cursor: grab;
+}
+.contenedor-filtros > * > input::before{
+    content: "0";
+}   
+.contenedor-filtros > * > input::after{
+    content: "100";
+}
+.contenedor-filtros > * > input::before,.contenedor-filtros > * > input::after{
+    top: 50%;
+}
+.contenedor-filtros > form > div > input{
+    width: 45%;
+    padding: 2px;
+}
+.contenedor-filtros > * >a> button{
+    cursor: pointer;
+    transition: all .4s;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: 2px solid red;
+    font-size: .5rem;
+    text-decoration: none;
+    color: red;
+}
+.contenedor-filtros > * >a> button:hover{
+    background: red;
+    color: white;
+}
+.contenedor-filtros > * >a> button:active{
+    border-radius: 10px;
+    border-style: none;
+}
+.contenedor-filtros > form{
+    display: none;
 }

@@ -19,7 +19,7 @@
             <input type="file" hidden>
         </div>
         <div class="wrapper">
-            <div class="images">
+            <div class="images" id="img">
                 <img class="img-1"></img>
                 <div class="img-2"></div>
             </div>
@@ -30,11 +30,59 @@
                 <input type="range" min="0" max="100" value="50">
             </div>
         </div>
-        <div class="buttons">
-            <button id="botonFiltroOne">Filtro: Invertido</button>
-            <button id="botonFiltroTwo">Filtro: Sepia</button>
-            <button id="botonFiltroThree">Filtro: B&N</button>
+        <div class="contenedor-filtros">
+            <div>
+                <label>Escala de grises</label><br>
+                <input type="range" min="0" max="100" value="0" class="filtros" id="grayscale">
+            </div>
+            <div>
+                <label>Grado de difuminado</label><br>
+                <input type="range" min="0" max="10" value="0" class="filtros" id="blurFilter">
+            </div>
+            <div>
+                <label>Sepia</label><br>
+                <input type="range" min="0" max="100" value="0" class="filtros" id="sepia">
+            </div>
+            <div>
+                <label>Grado de saturación</label><br>
+                <input type="range" min="0" max="100" value="100" class="filtros" id="saturate">
+            </div>
+            <!-- <div>
+                <label>Grado de transparencia</label><br>
+                <input type="range" min="0" max="100" value="0" class="filtros" id="opacidad">
+                <a href="#img"><button type="submit"> Aplicar </button></a>
+            </div> -->
+            <div>
+                <label>Brillo</label><br>
+                <input type="range" min="0" max="200" value="100" class="filtros" id="brillo">
+            </div>
+            <div>
+                <label>Contraste</label><br>
+                <input type="number" min="0" max="400" value="100" class="filtros" id="contraste">
+            </div>
+            <div>
+                <label>Rotación de color (matiz)</label><br>
+                <input type="range" min="0" max="360" value="0" class="filtros" id="hueRotate">
+            </div>
+            <div>
+                <label>Invertir</label><br>
+                <input type="range" min="0" max="100" value="0" class="filtros" id="invertir">
+            </div>
+            <!-- <form>
+                <label>Sombra (drop-shadow)</label><br>
+                <div>
+                    <input type="text" class="filtros pos" id="posx" placeholder="posición x">
+                    <input type="text" class="filtros pos" id="posy" placeholder="posición y">
+                </div>
+                <input id="difuminadoDeg" type="range" min="0" max="10" value="0" class="filtros" placeholder="grado de difuminado">
+                <input type="color" id="color">
+                <button type="submit" id="sombra"> Aplicar Sombra </button>
+            </form> -->
         </div>
+        <section class="botonesPrueba" style="display: none;">
+            <button id="normal">Reestablecer valores</button>
+            <!-- <a id="descargar">Descargar resultado</a> -->
+        </section>
         <section>
             <a id="linkTercero" href="third/proyecto3.html">Siguiente proyecto</a>
         </section>

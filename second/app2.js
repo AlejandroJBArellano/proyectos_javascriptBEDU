@@ -1,10 +1,8 @@
 const slider = document.querySelector(".slider input"),
 img = document.querySelector(".images .img-2"),
 dragLine = document.querySelector(".slider .lineaAgarre"),
-buttons = document.querySelector(".buttons")
-botonFiltroOne = document.getElementById("botonFiltroOne"),
-botonFiltroTwo = document.getElementById("botonFiltroTwo"),
-botonFiltroThree = document.getElementById("botonFiltroThree"),
+containerFilters = document.querySelector(".contenedor-filtros")
+filters = document.querySelectorAll(".filtros"),
 linkTercero = document.getElementById("linkTercero");
 img.style.width = `50%`
 slider.oninput = ()=>{
@@ -48,33 +46,83 @@ dropArea.addEventListener("drop", (event)=>{
 });
 
 let wrapper = document.querySelector(".wrapper"),
-wrapperImg = document.querySelector(".wrapper .images .img-1");
-
-function showFile(){
+wrapperImg = document.querySelector(".wrapper .images .img-1"),
+descargarImagen=()=>{
+    myAlert.classList.add("alerta")
+    myAlert.style.display = "inline"
+    myAlert.setAttribute("role", "alert");
+    myAlert.innerHTML = text;
+    document.getElementById("alerta").appendChild(myAlert);
+},
+grayscale = document.getElementById("grayscale"),
+blurFilter  = document.getElementById("blurFilter"),
+sepia  = document.getElementById("sepia"),
+saturate  = document.getElementById("saturate"),
+opacidad  = document.getElementById("opacidad"),
+brillo  = document.getElementById("brillo"),
+contraste  = document.getElementById("contraste"),
+hueRotate  = document.getElementById("hueRotate"),
+invertir = document.getElementById("invertir"),
+positionX = document.getElementById("posx"),
+positionY = document.getElementById("posy"),
+difuminadoDeg = document.getElementById("difuminadoDeg"),
+color = document.getElementById("color"),
+sombra = document.getElementById("sombra"),
+normal = document.getElementById("normal"),
+botonesPrueba = document.querySelector(".botonesPrueba"),
+// descargar = document.getElementById("descargar"),
+arrayFiltros = [grayscale.value,blurFilter.value,sepia.value,saturate.value,brillo.value,contraste.value,hueRotate.value,invertir.value],
+showFile=()=>{
     let fileType = file.type,
     validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //array de archivos válidos
     if(validExtensions.includes(fileType)){ 
         let fileReader = new FileReader(); 
         fileReader.onload = ()=>{
-            let fileURL = fileReader.result;
+            var fileURL = fileReader.result;
+            // if(fileType == validExtensions[2]){
+            //     containerFilters.children[children.length-1].style.display = "block"
+            // }
             wrapper.style.display = "block"
             wrapperImg.src = fileURL ;
-            img.innerHTML = `<div></div>`
             img.firstElementChild.style.background = `url("${fileURL}") no-repeat`;
             img.firstElementChild.style.backgroundSize = "cover";
             // img.firstElementChild.style.filter= "brightness(0.5)"
-            buttons.style.display = "flex"
+            containerFilters.style.display = "flex"
             linkTercero.parentElement.style.display = "flex"
             linkTercero.parentElement.style.justifyContent = "center"
             linkTercero.style.display = "inline"
+            botonesPrueba.style.display = "block"
+            // descargar.download = "imagen filtrada"
+            // descargar.href = `download/${fileURL}`
         }
     fileReader.readAsDataURL(file);
     }else{
     alert("No es un archivo de imagen");
     dropArea.classList.remove("active");
     }
-}
+};
+img.innerHTML = `<div></div>`;
 
-botonFiltroOne.onclick = ()=>img.style.filter= "invert(100%)"
-botonFiltroTwo.onclick = ()=>img.style.filter= "sepia(100%)"
-botonFiltroThree.onclick = ()=>img.style.filter= "saturate(0%)"
+let aplicar = ()=>img.firstElementChild.style.filter = `grayscale(${grayscale.value}%) blur(${blurFilter.value}px) sepia(${sepia.value}%) saturate(${saturate.value}%) brightness(${brillo.value}%) contrast(${contraste.value}%) hue-rotate(${hueRotate.value}deg) invert(${invertir.value}%)`
+
+grayscale.oninput = ()=> aplicar();
+blurFilter.oninput = ()=> aplicar();
+sepia.oninput = ()=> aplicar();
+saturate.oninput = ()=> aplicar();
+// opacidad.oninput = ()=>img.firstElementChild.style.filter= `opacity(${opacidad.value}%);
+brillo.oninput = ()=> aplicar();
+contraste.oninput = ()=> aplicar();
+hueRotate.oninput = ()=> aplicar();
+invertir.oninput = ()=> aplicar();
+
+normal.onclick = ()=>{
+    grayscale.value = `0`;
+    blurFilter.value = `0`;
+    sepia.value = `0`;
+    saturate.value = `100`;
+    brillo.value = `100`;
+    contraste.value = `100`;
+    hueRotate.value = `0`;
+    invertir.value = `0`;
+    aplicar()
+}
