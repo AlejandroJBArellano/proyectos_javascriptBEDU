@@ -25,19 +25,22 @@ html,body{
     text-align: center;
     font-family: 'Slabo 27px', serif;
     font-size: 20px;
-    border: dashed 5px;
+    width: 50%;
+    /* border: dashed 5px; */
     padding: 1rem 0;
     margin: auto;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,.3);
 }
 .drag-area button {
     font-family: 'Slabo 27px', serif;
     font-weight: 800;
-    color: var(--naranja);
+    /* color: var(--naranja); */
     font-size: 20px;
     border-radius: .3rem;
     padding: .3rem;
-    background: rgb(129,224,76);
-    background: radial-gradient(circle, rgba(129,224,76,1) 0%, rgba(16,213,62,1) 100%);
+    background: rgba(255, 0, 0, 0.2);
+    /* background: radial-gradient(circle, rgba(129,224,76,1) 0%, rgba(16,213,62,1) 100%); */
 }
 .wrapper{
     display: none;
@@ -167,14 +170,14 @@ html,body{
 .contenedor-filtros > *{
     width: 200px;
     height: auto;
-    background-color: rgba(233, 150, 122, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
     color: #efefef;
     font-size: 20px;
     font-family: 'Slabo 27px', serif;
     font-weight: 800;
     border-radius: .3rem;
     padding: .5rem;
-    margin: 1rem 0;
+    margin: 1rem;
     overflow: auto;
 }
 .contenedor-filtros > *:hover{

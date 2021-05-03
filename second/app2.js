@@ -70,6 +70,7 @@ color = document.getElementById("color"),
 sombra = document.getElementById("sombra"),
 normal = document.getElementById("normal"),
 botonesPrueba = document.querySelector(".botonesPrueba"),
+aplicarImagen = document.getElementById("aplicarImagen"), //botón para aplicar filtro seleccionado a la imagen puesta
 // descargar = document.getElementById("descargar"),
 arrayFiltros = [grayscale.value,blurFilter.value,sepia.value,saturate.value,brillo.value,contraste.value,hueRotate.value,invertir.value],
 showFile=()=>{
@@ -103,7 +104,7 @@ showFile=()=>{
 };
 img.innerHTML = `<div></div>`;
 
-let aplicar = ()=>img.firstElementChild.style.filter = `grayscale(${grayscale.value}%) blur(${blurFilter.value}px) sepia(${sepia.value}%) saturate(${saturate.value}%) brightness(${brillo.value}%) contrast(${contraste.value}%) hue-rotate(${hueRotate.value}deg) invert(${invertir.value}%)`
+let aplicar = ()=>img.firstElementChild.style.filter = `grayscale(${grayscale.value}%) blur(${blurFilter.value}px) sepia(${sepia.value}%) saturate(${saturate.value}%) brightness(${brillo.value}%) contrast(${contraste.value}%) hue-rotate(${hueRotate.value}deg) invert(${invertir.value}%)`;
 
 grayscale.oninput = ()=> aplicar();
 blurFilter.oninput = ()=> aplicar();
@@ -126,3 +127,4 @@ normal.onclick = ()=>{
     invertir.value = `0`;
     aplicar()
 }
+aplicarImagen.onclick = ()=>wrapperImg.style.filter = `grayscale(${grayscale.value}%) blur(${blurFilter.value}px) sepia(${sepia.value}%) saturate(${saturate.value}%) brightness(${brillo.value}%) contrast(${contraste.value}%) hue-rotate(${hueRotate.value}deg) invert(${invertir.value}%)`

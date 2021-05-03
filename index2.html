@@ -16,7 +16,7 @@
             <p>Arrastra una imagen o pulsa el botón para pasar al siguiente nivel</p>
             <span></span>
             <button>Explorar Imágenes</button>
-            <input type="file" hidden>
+            <input type="file" accept="image/png, image/jpeg, image/jpg" hidden>
         </div>
         <div class="wrapper">
             <div class="images" id="img">
@@ -27,7 +27,7 @@
                 <div class="lineaAgarre">
                     <span></span>
                 </div>
-                <input type="range" min="0" max="100" value="50">
+                <input type="range" min="0" max="100" value="50" >
             </div>
         </div>
         <div class="contenedor-filtros">
@@ -81,6 +81,7 @@
         </div>
         <section class="botonesPrueba" style="display: none;">
             <button id="normal">Reestablecer valores</button>
+            <button id="aplicarImagen">Aplicar Filtro a la Imagen</button> <!-- Posteriormente se realizarán cambios para que se pueda descargar la imagen-->
             <!-- <a id="descargar">Descargar resultado</a> -->
         </section>
         <section>

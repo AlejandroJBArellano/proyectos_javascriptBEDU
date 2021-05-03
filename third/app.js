@@ -2,6 +2,7 @@ let r, op, resultados = [],
 container = document.getElementById("container"),
 buttonUltVez = document.getElementById("buttonUltVez")
 ultVez = document.getElementById("ultVez"),
+indexArray = ultVez.value,
 form = document.getElementById("form"),
 suma = document.getElementById("suma"),
 resta = document.getElementById("resta"),
@@ -14,6 +15,10 @@ const printAlert = text => {
     myAlert.setAttribute("role", "alert");
     myAlert.innerHTML = text;
     document.getElementById("alerta").appendChild(myAlert);
+}, checarOperacion = ()=>{
+    if (resultados[indexArray-1] === undefined){
+        container.innerHTML = `${container.innerHTML} <br> No existe esa operación. Por favor, ingrese un número válido`
+    } else {container.innerHTML = `${container.innerHTML} <br> Operación no.${indexArray}: ${resultados[indexArray-1][0]} ${resultados[indexArray-1][1]} ${resultados[indexArray-1][2]} = ${resultados[indexArray-1][3]}`}
 }
 
 suma.addEventListener("click",()=> op = "+")
@@ -59,7 +64,11 @@ document.querySelector("#calcular").addEventListener("click",()=>{
         ultVez.max = `${resultados.length}`
     }
 })
+ultVez.addEventListener("keydowm",(event)=>{
+    if(event.key === "enter"){
+        checarOperacion()
+    }
+})
 buttonUltVez.onclick = ()=>{
-    let indexArray = ultVez.value
-    container.innerHTML = `${container.innerHTML} <br> Operación no.${indexArray}: ${resultados[indexArray-1][0]} ${resultados[indexArray-1][1]} ${resultados[indexArray-1][2]} = ${resultados[indexArray-1][3]}`
+    checarOperacion()
 }
